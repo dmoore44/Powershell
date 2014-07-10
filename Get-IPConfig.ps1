@@ -46,4 +46,4 @@ function Get-IPConfig ([switch]$Global)
     }
 }
 
-Get-IPConfig | Where-Object Type -EQ "Ethernet" | Sort Name | FT -AutoSize -Property Name,Type,PhysicalAddress,IPv4Address,SubnetMask,DefaultGateway
+Get-IPConfig | Where-Object IPv4Address -NE $null | Sort Name | FT -AutoSize -Property Name,Type,PhysicalAddress,IPv4Address,SubnetMask,DefaultGateway
