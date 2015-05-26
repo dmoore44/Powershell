@@ -180,11 +180,13 @@ foreach ($objItem in $PatchItems){
 #Populate Runing Services
 	foreach ($objItem in $ServiceInfo){
 		$Sheet9.Cells.Item($intRowServ, 1) = $StrComputer
-		$Sheet9.Cells.Item($intRowServ, 2) = $objItem.Name
-		$Sheet9.Cells.Item($intRowServ, 3) = $objItem.ProcessId
-		$Sheet9.Cells.Item($intRowServ, 4) = $objItem.StartMode
-		$Sheet9.Cells.Item($intRowServ, 5) = $objItem.State
-        $Sheet9.Cells.Item($intRowServ, 6) = $objItem.Status
+        $Sheet9.Cells.Item($intRowServ, 2) = $objItem.DisplayName
+		$Sheet9.Cells.Item($intRowServ, 3) = $objItem.Name
+		$Sheet9.Cells.Item($intRowServ, 4) = $objItem.ProcessId
+		$Sheet9.Cells.Item($intRowServ, 5) = $objItem.StartMode
+		$Sheet9.Cells.Item($intRowServ, 6) = $objItem.State
+        $Sheet9.Cells.Item($intRowServ, 7) = $objItem.Status
+        $Sheet9.Cells.Item($intRowServ, 8) = $objItem.PathName
 		$intRowServ = $intRowServ + 1
 		}
 		
@@ -361,11 +363,13 @@ foreach ($objItem in $PatchItems){
 #Populate Runing Services
 	foreach ($objItem in $ServiceInfo){
 		$Sheet9.Cells.Item($intRowServ, 1) = $StrComputer
-		$Sheet9.Cells.Item($intRowServ, 2) = $objItem.Name
-		$Sheet9.Cells.Item($intRowServ, 3) = $objItem.ProcessId
-		$Sheet9.Cells.Item($intRowServ, 4) = $objItem.StartMode
-		$Sheet9.Cells.Item($intRowServ, 5) = $objItem.State
-        $Sheet9.Cells.Item($intRowServ, 6) = $objItem.Status
+        $Sheet9.Cells.Item($intRowServ, 2) = $objItem.DisplayName
+		$Sheet9.Cells.Item($intRowServ, 3) = $objItem.Name
+		$Sheet9.Cells.Item($intRowServ, 4) = $objItem.ProcessId
+		$Sheet9.Cells.Item($intRowServ, 5) = $objItem.StartMode
+		$Sheet9.Cells.Item($intRowServ, 6) = $objItem.State
+        $Sheet9.Cells.Item($intRowServ, 7) = $objItem.Status
+        $Sheet9.Cells.Item($intRowServ, 8) = $objItem.PathName
 		$intRowServ = $intRowServ + 1
 		}
 		
@@ -554,9 +558,9 @@ $Sheet6.Cells.Item(1,8) = "DNS_Reg"
 $Sheet6.Cells.Item(1,9) = "Primary_WINS"
 $Sheet6.Cells.Item(1,10) = "Secondary_WINS"
 $Sheet6.Cells.Item(1,11) = "WINS_Lookup"
-$Sheet6.Cells.Item(1, 12) = "MAC_Address"
-$Sheet6.Cells.Item(1, 13) = "DNS_Host_Name"
-$Sheet6.Cells.Item(1, 14) = "DNS_Domain"
+$Sheet6.Cells.Item(1,12) = "MAC_Address"
+$Sheet6.Cells.Item(1,13) = "DNS_Host_Name"
+$Sheet6.Cells.Item(1,14) = "DNS_Domain"
 
 #Create Heading for Patches Sheet
 $Sheet7.Cells.Item(1,1) = "Device_Name"
@@ -575,11 +579,13 @@ $Sheet8.Cells.Item(1,6) = "Identifying_Number"
 
 #Create Heading for Services Sheet
 $Sheet9.Cells.Item(1,1) = "Device_Name"
-$Sheet9.Cells.Item(1,2) = "Service_Name"
-$Sheet9.Cells.Item(1,3) = "Process_ID"
-$Sheet9.Cells.Item(1,4) = "Start_Mode"
-$Sheet9.Cells.Item(1,5) = "Service_State"
-$Sheet9.Cells.Item(1,6) = "Service_Status"
+$Sheet9.Cells.Item(1,2) = "Display_Name"
+$Sheet9.Cells.Item(1,3) = "System_Name"
+$Sheet9.Cells.Item(1,4) = "Process_ID"
+$Sheet9.Cells.Item(1,5) = "Start_Mode"
+$Sheet9.Cells.Item(1,6) = "Service_State"
+$Sheet9.Cells.Item(1,7) = "Service_Status"
+$Sheet9.Cells.Item(1,8) = "Path_Name"
 
 $colSheets = ($Sheet1, $Sheet2, $Sheet3, $Sheet4, $Sheet5, $Sheet6, $Sheet7, $Sheet8, $Sheet9)
 foreach ($colorItem in $colSheets){
