@@ -11,7 +11,8 @@ MODIFYING AUTHOR: Dallas Moore
 DATE UPDATED: 05/22/2015
 Web: https://github.com/dmoore44
 COMMENT: This script has been updated to include retrieval of installed software, installed
-         patches, running servivces, and running processes
+         patches, running servivces, and running processes.  Additionally, additional properties 
+         have been added from WMI classes already in use (i.e. MAC Address, DNS Domain, etc...)
 ==============================================================================================
 #>
 
@@ -149,6 +150,9 @@ $bankcounter = 1
 		$Sheet6.Cells.Item($intRowNet, 9) = $objItem.WINSPrimaryServer
 		$Sheet6.Cells.Item($intRowNet, 10) = $objItem.WINSSecondaryServer
 		$Sheet6.Cells.Item($intRowNet, 11) = $objItem.WINSEnableLMHostsLookup
+        $Sheet6.Cells.Item($intRowNet, 12) = $objItem.MACAddress
+        $Sheet6.Cells.Item($intRowNet, 13) = $objItem.DNSHostName
+        $Sheet6.Cells.Item($intRowNet, 14) = $objItem.DNSDomain
 		$intRowNet = $intRowNet + 1
 		}
 
@@ -327,6 +331,9 @@ $bankcounter = 1
 		$Sheet6.Cells.Item($intRowNet, 9) = $objItem.WINSPrimaryServer
 		$Sheet6.Cells.Item($intRowNet, 10) = $objItem.WINSSecondaryServer
 		$Sheet6.Cells.Item($intRowNet, 11) = $objItem.WINSEnableLMHostsLookup
+        $Sheet6.Cells.Item($intRowNet, 12) = $objItem.MACAddress
+        $Sheet6.Cells.Item($intRowNet, 13) = $objItem.DNSHostName
+        $Sheet6.Cells.Item($intRowNet, 14) = $objItem.DNSDomain
 		$intRowNet = $intRowNet + 1
 		}
 
@@ -440,13 +447,6 @@ $erroractionpreference = "SilentlyContinue"
 
 
 #Gather info from user.
-Write-Host "********************************" 	-ForegroundColor Green
-Write-Host "Computer Inventory Script" 			-ForegroundColor Green
-Write-Host "By: Jesse Hamrick" 					-ForegroundColor Green
-Write-Host "Created: 04/15/2009" 				-ForegroundColor Green
-Write-Host "Contact: www.PowerShellPro.com" 	-ForegroundColor Green
-Write-Host "********************************" 	-ForegroundColor Green
-Write-Host " "
 Write-Host "Admin rights are required to enumerate information." 	-ForegroundColor Green
 Write-Host "Would you like to use an alternative credential?"		-ForegroundColor Green
 $credResponse = Read-Host "[Y] Yes, [N] No"
@@ -554,6 +554,9 @@ $Sheet6.Cells.Item(1,8) = "DNS_Reg"
 $Sheet6.Cells.Item(1,9) = "Primary_WINS"
 $Sheet6.Cells.Item(1,10) = "Secondary_WINS"
 $Sheet6.Cells.Item(1,11) = "WINS_Lookup"
+$Sheet6.Cells.Item(1, 12) = "MAC_Address"
+$Sheet6.Cells.Item(1, 13) = "DNS_Host_Name"
+$Sheet6.Cells.Item(1, 14) = "DNS_Domain"
 
 #Create Heading for Patches Sheet
 $Sheet7.Cells.Item(1,1) = "Device_Name"
