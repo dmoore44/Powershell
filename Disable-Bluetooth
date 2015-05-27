@@ -1,0 +1,24 @@
+<#
+This script is dependent on having a working copy of devcon.exe 
+If you don't have it, you'll need to download it.
+
+It's part of the Windows Development Kit (WDK).
+
+Note: Devcon.exe comes in x86 and x64 flavors - use the proper
+one for your OS architecture.
+#>
+
+$id = (Get-CimInstance Win32_PnPEntity | where caption -match 'Broadcom 20702*').pnpDeviceID
+$ppid = "{0}{1}" -f '@',$id
+
+Set-Location C:\WDK8.1\Tools\x64
+
+.\devcon.exe status $ppid
+
+.\devcon.exe disable $ppid
+
+Start-sleep 21
+
+.\devcon.exe enable $ppid
+
+.\devcon.exe status $ppid
