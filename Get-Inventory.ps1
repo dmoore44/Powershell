@@ -1,19 +1,41 @@
 <#
-==============================================================================================
-ORIGINAL NAME: Server/Workstation Inventory (CompInv_v2.ps1)
-ORIGINAL AUTHOR: Jesse Hamrick
-DATE CREATED: 2/25/2009
-Web	: www.PowerShellPro.com
-COMMENT: Script Inventories Computers and sends results to an excel file.
+#########################################
+# Originating Author:     Jesse Hamrick #
+# Modifying Author:       Dallas Moore  #
+# Date created:           Feb 2009      #
+# Last updated:           May 2015      #
+# Ver:                    2.0           #
+#########################################
+.SYNOPSIS   
+	Inventories hardware and software configuration of a target machine.
 
-NEW NAME: Get-Inventory.ps1
-MODIFYING AUTHOR: Dallas Moore
-DATE UPDATED: 05/22/2015
-Web: https://github.com/dmoore44
-COMMENT: This script has been updated to include retrieval of installed software, installed
-         patches, running servivces, and running processes.  Additionally, additional properties 
-         have been added from WMI classes already in use (i.e. MAC Address, DNS Domain, etc...)
-==============================================================================================
+.DEPENDENCIES
+    Microsoft Excel MUST be installed on the target machine.
+    
+.DESCRIPTION 
+	The purpose of this script is to generate a hardware and software configuration
+    report for a target machine.  In it's original form, this script gathered the 
+    CPU, Memory, BIOS, HDD, and network configuration information, but has since
+    been updated to gather expanded network configuration, installed software, running services, 
+    and patch information.  Information gathered is output to an Excel spreadsheet.
+
+.EXAMPLE   
+	PS C:\Personal\dmoore\Documents\Powershell Scripts> .\Get-Inventory.ps1
+    Admin rights are required to enumerate information.
+    Would you like to use an alternative credential?
+    [Y] Yes, [N] No: n
+
+    Which computer resources would you like in the report?
+    [1] All Domain Computers, [2] All Domain Servers, [3] Computer names from a File, [4] Choose a Computer manually: 4
+    Enter Computer Name or IP: localhost
+   
+.NOTE1
+    If you're interested in checking out the original script, see here:
+    http://www.powershellpro.com/why-i-no-longer-hate-writing-documentation/614/
+
+.NOTE2
+    In the future, I would like to modify this script so that it writes output to a database
+    rather than to Excel.
 #>
 
 # ==============================================================================================
