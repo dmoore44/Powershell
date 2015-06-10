@@ -7,20 +7,20 @@
 # Ver:                    2.0           #
 #########################################
 .SYNOPSIS   
-	Inventories hardware and software configuration of a target machine.
+    Inventories hardware and software configuration of a target machine.
 
 .DEPENDENCIES
     Microsoft Excel MUST be installed on the target machine.
     
 .DESCRIPTION 
-	The purpose of this script is to generate a hardware and software configuration
+    The purpose of this script is to generate a hardware and software configuration
     report for a target machine.  In it's original form, this script gathered the 
     CPU, Memory, BIOS, HDD, and network configuration information, but has since
     been updated to gather expanded network configuration, installed software, running services, 
     and patch information.  Information gathered is output to an Excel spreadsheet.
 
 .EXAMPLE   
-	PS C:\Personal\dmoore\Documents\Powershell Scripts> .\Get-Inventory.ps1
+    PS C:\Personal\dmoore\Documents\Powershell Scripts> .\Get-Inventory.ps1
     Admin rights are required to enumerate information.
     Would you like to use an alternative credential?
     [Y] Yes, [N] No: n
