@@ -5,7 +5,7 @@ function Get-ForensicRunKeyPortable{
         [ValidatePattern('^(\\\\\.\\)?([A-Za-z]:)$')]
         [string]$VolumeName = '\\.\C:',
 
-        [Parameter(Mandatory, ParameterSetName = 'ByPath')]
+        [Parameter(Mandatory=$true, ParameterSetName='ByPath')]
         [string]$Path
     )
     
