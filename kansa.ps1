@@ -744,7 +744,7 @@ Param(
                     $Outfile = $Outfile + ".json"
                     $Recpt | ConvertTo-Json -Depth $JSONDepth | Set-Content -Encoding $Encoding $Outfile
                     # The next few lines define the GrayLog server information
-                    $glserver = "172.16.0.32"
+                    $glserver = "Monstro"
                     $glport = 12201
                     $glurl = "http://${glserver}:$glport/gelf"
                     # The next few lines define how we're going to handle information output from the various Kansa modules
@@ -764,7 +764,7 @@ Param(
                     $Outfile = $Outfile + ".json"
                     $Recpt | ConvertTo-Json -Depth $JSONDepth | Set-Content -Encoding $Encoding $Outfile
                     # The next few lines define the Splunk instance information
-                    $token = "BA41C0E8-5841-43A2-AF4F-5017060B50B7"
+                    $token = "Insert your token here"
                     $server = "Monstro"
                     $port = 8088
                     $url = "http://${server}:$port/services/collector/event"
