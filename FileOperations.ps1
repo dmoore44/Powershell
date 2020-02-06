@@ -1,3 +1,29 @@
+<#
+################################
+# Author:         Dallas Moore #
+# Date created:   Feb 2020     #
+# Last updated:   Feb 2020     #
+# Ver:            1.0          #
+################################
+    .SYNOPSIS
+        Compresses and B64 encodes a file, or rehydrate the B64 string back to a file.
+    .DESCRIPTION
+        This script will compress and B64 encode a file (and/or) rehydrate the B64 string 
+	back to a file for easy portability. Unthreatening looking strings tend to not get 
+	stomped.
+    .EXAMPLE
+        I dropped the script text in to my $PSProfile ($Profile.CurrentUserAllHosts) for easy
+	use. I suppose you could always dot-source it whenever you want to use it, but you do you.
+	
+	Then, you just do something like this:
+	PS > Compress-File -File ~\Desktop\whatever.txt -outputLoc ~\Desktop\gibberish.txt
+	
+	PS > Decompress-File -memstream $(Get-Content -Path ~\Desktop\encoded.txt) -outputloc ~\Desktop\decoded.txt
+	NOTE: In the above example, you only need to include the B64 string in your input file - if you try and run the
+	Decompress-File function on the output from Compress-File, it'll fail.
+	PS > Decompress-File -memstream "b64 string here" -outputLoc ~\Desktop\decoded.txt
+#>
+
 Function Compress-File {
     Param(
         [Parameter(Mandatory=$True,Position=0)]
